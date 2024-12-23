@@ -6,11 +6,15 @@
 </head>
 <body>
     <h1>Добавить книгу</h1>
-    <form method="post"> <!-- Форма добавления -->
-        {% csrf_token %} <!-- Защита от CSRF -->
-        {{ form.as_p }} <!-- Вывод полей формы -->
-        <button type="submit">Добавить</button>
-    </form>
+     <!-- Форма добавления книги -->
+     <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <!-- Выводим поля формы -->
+         {{ form.as_p }}
+          <!-- Кнопка отправки формы -->
+         <button type="submit">Добавить</button>
+     </form>
+     <!-- Ссылка на возврат к списку книг -->
     <a href="{% url 'index' %}">Назад к списку книг</a>
 </body>
 </html>
