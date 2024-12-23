@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список авторов</title>
+</head>
+<body>
+    <h1>Список авторов</h1>
+    <ul>
+        {% for author in authors %}
+            <li><a href="{% url 'author_detail' author.id %}">{{ author.name }}</a></li>
+        {% endfor %}
+    </ul>
+      <a href="{% url 'index' %}">Назад к списку книг</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить книгу</title>
+</head>
+<body>
+    <h1>Добавить книгу</h1>
+    <form method="post"> <!-- Форма добавления -->
+        {% csrf_token %} <!-- Защита от CSRF -->
+        {{ form.as_p }} <!-- Вывод полей формы -->
+        <button type="submit">Добавить</button>
+    </form>
+    <a href="{% url 'index' %}">Назад к списку книг</a>
+</body>
+</html>

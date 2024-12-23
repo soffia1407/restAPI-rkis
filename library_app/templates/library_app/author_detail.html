@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ author.name }}</title>
+</head>
+<body>
+    <h1>{{ author.name }}</h1>
+    <p>Биография: {{ author.biography }}</p> <!-- Биография автора -->
+    <h2>Книги автора:</h2>
+    <ul> <!-- Список книг автора -->
+        {% for book in author.book_set.all %}
+            <li><a href="{% url 'book_detail' book.id %}">{{ book.title }}</a></li> <!-- Вывод каждой книги автора -->
+        {% endfor %}
+    </ul>
+    <a href="{% url 'authors' %}">Назад к списку авторов</a>
+</body>
+</html>

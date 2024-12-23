@@ -21,7 +21,7 @@ class Book(models.Model):
     text_file = models.CharField(max_length=200)
 
     class Meta:
-        unique_together = ('title', 'author', 'year', 'publisher')
+        unique_together = ('title', 'author', 'year', 'publisher') # Уникальность
 
     def __str__(self):
         return self.title

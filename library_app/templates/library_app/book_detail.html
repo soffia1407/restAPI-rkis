@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ book.title }}</title>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+    <p>Автор: <a href="{% url 'author_detail' book.author.id %}">{{ book.author.name }}</a></p> <!-- Ссылка на автора -->
+    <p>Год: {{ book.year }}</p>
+    <p>Жанр: {{ book.genre }}</p>
+    <p>Категория: {{ book.category }}</p>
+    <p>Издательство: {{ book.publisher }}</p>
+    <img src="{{ book.cover_image }}" alt="Обложка книги" style="max-width: 200px;">
+    <p><a href="{{ book.text_file }}">Читать книгу</a></p>
+    <a href="{% url 'index' %}">Назад к списку книг</a>
+</body>
+</html>
