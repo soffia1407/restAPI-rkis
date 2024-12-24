@@ -6,7 +6,6 @@
 </head>
 <body>
     <h1>Список книг</h1>
-    <a href="{% url 'add_book' %}">Добавить книгу</a> <!-- Ссылка на добавление книги -->
     <a href="{% url 'authors' %}">Список авторов</a> <!-- Ссылка на список авторов -->
     <form action="{% url 'search' %}" method="get"> <!-- Форма для поиска -->
       <input type="text" name="query" placeholder="Поиск...">
