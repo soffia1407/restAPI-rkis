@@ -18,11 +18,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import re_path
+from rest_framework import routers # Очень важный импорт
+from library_app import views
+
+router = routers.DefaultRouter()  # Создаем роутер
+router.register('books', views.BookViewSet)  # Регистрируем BookViewSet
+router.register('authors', views.AuthorViewSet)  # Регистрируем AuthorViewSet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('library_app.urls')),
+    path('api/', include(router.urls))  # Маршруты для REST API
 ]
 
 

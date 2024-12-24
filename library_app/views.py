@@ -1,6 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404 # Функции для работы с редиректами, шаблонами и 404
 from .models import Book, Author # Импорт наших моделей
 from django.db.models import Q  # Импорт Q для сложных запросов
+from rest_framework import viewsets
+from .serializers import BookSerializer, AuthorSerializer
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer  # Связь с сериализатором
+
+class AuthorViewSet(viewsets.ModelViewSet):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer # Связь с сериализатором
 
 def index(request):
     """Главная страница со списком книг."""
